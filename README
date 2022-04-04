@@ -1,0 +1,37 @@
+Felix Java v0.4.2
+
+Programme à usage pédagogique.
+
+Copyright (c)(2022) Matthias BRUN (matthias.brun@eseo.fr)
+
+
+-----------
+Description
+-----------
+
+Felix : Logiciel client chat.
+Programme à usage pédagogique.
+ 
+- configuration dans le répertoire config ;
+- communication avec le composant Camix (BufferedReader et BufferedWriter) ;
+- vue connexion et vue chat ;
+- aucun test n'est implémenté.
+
+
+-------------------
+Répertoires sources
+-------------------
+
+src/
+config/
+
+Encodage : UTF-8
+
+
+----------
+Dépendance
+----------
+
+Camix Java >= v0.3.2
+
+

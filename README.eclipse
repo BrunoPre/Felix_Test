@@ -1,0 +1,43 @@
+-------------------
+Import dans Eclipse
+-------------------
+
+Créer un nouveau projet java : 
+------------------------------
+
+File -> New -> Java Project
+Project Name : Felix_Java
+> Next
+Remarque : si Java > 8, décocher : [] Create module-info.java file
+> Finish
+
+Importer les sources :
+----------------------
+
+Dans la vue Package Explorer :
+
+Sélectionner le projet 'Felix_Java"
+> click droit > Import... > General > File System
+From directory : (Browse...) /<path>/<to>/<felix>/
+> Ouvrir
+(cliquer sur la flèche (ou le +) devant le répertoire du projet)
+sélectionner les répertoires "config" et "src"
+> Finish
+
+Sélectionner le répertoire "config"
+> click droit > Build Path > Use as Source Folder
+
+Remarque : il peut être nécessaire de préciser que les sources du projet sont en UTF-8 (clic droit sur le projet -> Properties -> Resource -> Text file encoding : Other |UTF-8|. 
+
+
+Configuration de l'exécution du logiciel :
+------------------------------------------
+
+Run -> Run Configurations...
+
+Java Application -> clique droit -> New Configuration
+Name : Felix Java
+Main class : (Search...) Felix - felix
+Apply
+Close
+
