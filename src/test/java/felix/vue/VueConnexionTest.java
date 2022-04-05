@@ -1,8 +1,5 @@
 package felix.vue;
 
-import felix.Felix;
-import felix.communication.Connexion;
-import felix.controleur.ControleurFelix;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -13,6 +10,10 @@ import org.netbeans.jemmy.TimeoutExpiredException;
 import org.netbeans.jemmy.operators.JButtonOperator;
 import org.netbeans.jemmy.operators.JFrameOperator;
 import org.netbeans.jemmy.operators.JTextFieldOperator;
+
+import felix.Felix;
+import felix.communication.Connexion;
+import felix.controleur.ControleurFelix;
 
 public class VueConnexionTest {
 
