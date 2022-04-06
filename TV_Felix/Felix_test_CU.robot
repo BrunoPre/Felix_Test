@@ -29,14 +29,30 @@ ${INFO_ACHAT_IMPOSSIBLE}      Achat impossible
 *** Test Cases ***
 
 #
-# Traiter passage en caisse, achat d'un produit.
+# Scénario nominal : entrée dans le chat
 #
 Entrer Dans Le Chat
     # 1.
-    Lancer Composant Felix
+    L'utilisateur lance le Composant Felix
     # 2.
-    Afficher Vue Connexion
+    Felix Affiche Vue Connexion
     # 3.
+    L'utilisateur demande à se connecter
+    # 4.
+    Felix Affiche un message de connexion
+    # 5. 6. 7. réalisation interne
+
+    # 8.
+    Camix transmet au composant Felix de l’utilisateur un message d’accueil dans le chat
+    # 9.
+    Felix ferme la vue Connexion
+    # 10.
+    Felix affiche la vue Chat
+    # 11.
+    Felix affiche un message d’accueil dans le chat
+
+
+
 
 Entrer Dans Le Chat [Modification de l'IP]
 	#	1.
