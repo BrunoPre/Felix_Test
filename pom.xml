@@ -24,6 +24,25 @@
       <artifactId>jemmy</artifactId>
       <version>2.2.7.5</version>
     </dependency>
+    <dependency>
+      <groupId>org.robotframework</groupId>
+      <artifactId>remoteswinglibrary</artifactId>
+      <version>2.3.0</version>
+    </dependency>
+    <dependency>
+      <groupId>id</groupId>
+      <artifactId>Felix</artifactId>
+      <version>0.4.3</version>
+      <scope>system</scope>
+      <systemPath>${pom.basedir}/SUT/Felix-0.4.3.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>id</groupId>
+      <artifactId>Camix</artifactId>
+      <version>0.4.3</version>
+      <scope>system</scope>
+      <systemPath>${pom.basedir}/SUT/Camix-0.4.3.jar</systemPath>
+    </dependency>
   </dependencies>
   <properties>
     <maven.compiler.source>11</maven.compiler.source>
