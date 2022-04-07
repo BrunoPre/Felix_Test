@@ -1,8 +1,8 @@
 *** Settings ***
 
-Library           RemoteSwingLibrary
-Suite Setup       Start Test Application
-Suite Teardown    Stop Test Application
+Resource 					resources/Felix_test_CU.resource
+Suite Setup       Execution Camix
+Suite Teardown    Arret Camix
 
 *** Variables ***
 
@@ -10,20 +10,43 @@ Suite Teardown    Stop Test Application
 # Données de test
 #
 
-${ID_PRODUIT}         11A
-${QTT_PRODUIT}        2
-${LIBELLE_PRODUIT}    produit un A
-${PRIX_PRODUIT}       10,00 €
-${INFO_ACHAT}         + produit un A \ \ x \ \ 2 \ x 10,00 €
-${TOTAL_ACHAT}        20,00 €
-${INFO_TICKET}        SEPARATOR=\n                                              <Ticket>
-...                   produit un A \ \ \ \ \ \ x 2 \ \ \ \ \ x \ \ \ 10,00 €
+${IP_ADRESS} ${ADRESSE_CHAT}
+${PORT_CHAT} ${PORT_CHAT}
 
+*** Keywords ***
 
-${ID_PRODUIT_INCONNU}         id invalide
-${QTT_PRODUIT_INCONNU}        3
-${LIBELLE_PRODUIT_INCONNU}    Produit inconnu
-${INFO_ACHAT_IMPOSSIBLE}      Achat impossible
+#
+# Scénario nominal : entrée dans le chat
+#
+Entrer Dans Le Chat
+	[Teardown] Arret Felix
+  # 1.
+  L'utilisateur lance le Composant Felix
+  # 2.
+  Felix Affiche Vue Connexion
+  # 3.
+  L'utilisateur demande à se connecter
+  # 4.
+  Felix Affiche un message de connexion
+  # 5. 6. 7. réalisation interne
+  # 8. Camix transmet au composant Felix de l’utilisateur un message d’accueil dans le chat
+  # 9.
+  Felix ferme la vue Connexion
+  # 10.
+  Felix affiche la vue Chat
+  # 11.
+  Felix affiche un message d’accueil dans le chat
+
+Entrer Dans Le Chat [Modification de l'IP] [Modification du port]
+  [Teardown] Arret Felix
+
+  [Template] Entrer Dans Le Chat [Modification de l'IP] [Modification du port]
+  ${ip} ${port}
+
+Entrer Dans Le Chat [Connexion Impossible]
+  [Teardown] Arret Felix
+
+  [Template] Entrer Dans Le Chat [Connexion Impossible]
 
 
 *** Test Cases ***
@@ -32,64 +55,12 @@ ${INFO_ACHAT_IMPOSSIBLE}      Achat impossible
 # Scénario nominal : entrée dans le chat
 #
 Entrer Dans Le Chat
-    # 1.
-    L'utilisateur lance le Composant Felix
-    # 2.
-    Felix Affiche Vue Connexion
-    # 3.
-    L'utilisateur demande à se connecter
-    # 4.
-    Felix Affiche un message de connexion
-    # 5. 6. 7. réalisation interne
+	Entrer Dans Le Chat
 
-    # 8.
-    Camix transmet au composant Felix de l’utilisateur un message d’accueil dans le chat
-    # 9.
-    Felix ferme la vue Connexion
-    # 10.
-    Felix affiche la vue Chat
-    # 11.
-    Felix affiche un message d’accueil dans le chat
-
-
-
-
-Entrer Dans Le Chat [Modification de l'IP]
-	#	1.
-	L'utilisateur lance le Composant Felix
-	# 2.
-	Felix affiche la Vue Connexion
-	# 3.
-	L'utilisateur modifie l'adresse IP
-	# 4.
-	Felix Affiche Un Message De Connexion
-	# 5. 6. 7. réalisation interne
-
-	# 8. 0 autre felix
-
-Entrer Dans Le Chat [Modification du port]
-	#	1.
-	Lancer Composant Felix
-	# 2.
-	Lancer Afficher Vue
-	# 3.
-	Modifier Port
+Entrer Dans Le Chat [Modification de l'IP] [Modification du port]
+	[Template] Entrer Dans Le Chat [Modification de l'IP] [Modification du port]
 
 Entrer Dans Le Chat [Connexion Impossible]
+	[Template] Entrer Dans Le Chat [Connexion Impossible]
 
-	# 1.
-	Lancer Composant Felix
-	# 2.
-	Lancer Afficher Vue
-	# 3.
-	Message De Connexion Impossible
 *** Keywords ***
-
-Start Test Application
-	Start Application    Monix               java -Duser.language=fr -Duser.country=FR -jar SUT/monix_java-5.4.2.jar -b
-	...                  stdout=/dev/null    stderr=/dev/null
-	Sleep                5s
-
-Stop Test Application
-	Switch To Application    Monix
-	System Exit

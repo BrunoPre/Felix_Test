@@ -3,6 +3,7 @@ package felix.vue;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.netbeans.jemmy.JemmyProperties;
@@ -32,7 +33,6 @@ public class VueConnexionTest {
      */
     private Connexion connexionMock;
 
-
     /**
      * Opérateurs de JFrame pour accéder à la fenêtre de la vue.
      */
@@ -41,17 +41,16 @@ public class VueConnexionTest {
     /**
      * Opérateurs de JTextField pour accéder aux champs texte de la vue :
      * <ul>
-     *     <li>l'adresse IP</li>
-     *     <li>les messages d'information de connexion</li>
-     *     <li>le port</li>
+     * <li>l'adresse IP</li>
+     * <li>les messages d'information de connexion</li>
+     * <li>le port</li>
      * </ul>
      */
     private JTextFieldOperator texteIP, texteInformation, textePort;
 
-
-
     /**
-     * Opérateurs de JButton pour accéder aux boutons de la vue : bouton "Connecter" de la vue
+     * Opérateurs de JButton pour accéder aux boutons de la vue : bouton "Connecter"
+     * de la vue
      */
     private JButtonOperator boutonConnecter;
 
@@ -60,7 +59,9 @@ public class VueConnexionTest {
      * Crée un mock de ...
      * Crée et affiche la vue nécessaire aux tests.
      *
-     * <p>Code exécuté avant chaque test.</p>
+     * <p>
+     * Code exécuté avant chaque test.
+     * </p>
      *
      * @throws Exception toute exception.
      *
@@ -68,15 +69,14 @@ public class VueConnexionTest {
      *
      */
     @Before
-    public void setUp() throws Exception
-    {
+    public void setUp() throws Exception {
         // Fixe les timeouts de Jemmy :
         // https://javadoc.io/doc/org.netbeans/jemmy/latest/org/netbeans/jemmy/JemmyProperties.html
         // https://javadoc.io/doc/org.netbeans/jemmy/latest/org/netbeans/jemmy/FrameWaiter.html
         // https://javadoc.io/doc/org.netbeans/jemmy/latest/org/netbeans/jemmy/operators/ComponentOperator.html
         // (ex-doc : http://wiki.netbeans.org/Jemmy_Operators_Environment#Timeouts),
         // ici : 3s pour l'affichage d'une frame ou d'un composant (widget),
-        //       ou une attente de changement d'état (waitText par exemple).
+        // ou une attente de changement d'état (waitText par exemple).
         final Integer timeout = 3000;
         JemmyProperties.setCurrentTimeout("FrameWaiter.WaitFrameTimeout", timeout);
         JemmyProperties.setCurrentTimeout("ComponentOperator.WaitComponentTimeout", timeout);
@@ -85,7 +85,6 @@ public class VueConnexionTest {
         // Création d'un mock de contrôleur.
         this.controleurMock = Mockito.mock(ControleurFelix.class);
         Assert.assertNotNull(this.controleurMock);
-
 
         // Création de la vue nécessaire aux tests.
         // La vue s'appuie sur le mock de contrôleur.
@@ -97,19 +96,18 @@ public class VueConnexionTest {
         this.accesVue();
     }
 
-
-
     /**
      * Fermeture de la vue caisse.
      *
-     * <p>Code exécuté après chaque test.</p>
+     * <p>
+     * Code exécuté après chaque test.
+     * </p>
      *
      * @throws Exception toute exception.
      *
      */
     @After
-    public void tearDown() throws Exception
-    {
+    public void tearDown() throws Exception {
         // 2 secondes d'observation par suspension du thread
         final Long timeout = Long.valueOf(2000);
         Thread.sleep(timeout);
@@ -119,13 +117,11 @@ public class VueConnexionTest {
         }
     }
 
-    private void accesVue()
-    {
+    private void accesVue() {
         // Accès à la fenêtre de la vue de la connexion (par son titre).
         try {
             this.fenetre = new JFrameOperator(Felix.IHM.getString("FENETRE_CONNEXION_TITRE"));
-        }
-        catch (TimeoutExpiredException e) {
+        } catch (TimeoutExpiredException e) {
             Assert.fail("La fenêtre de la vue connexion n'est pas accessible : " + e.getMessage());
         }
 
@@ -139,16 +135,13 @@ public class VueConnexionTest {
             // Accès au champ de saisie du port (par son index).
             this.textePort = new JTextFieldOperator(this.fenetre, index++);
 
-
-
             // Ré-initialisation de l'index pour l'accès aux boutons.
             index = 0;
 
             // Accès au bouton de connexion (par son index).
             this.boutonConnecter = new JButtonOperator(this.fenetre, index++);
 
-        }
-        catch (TimeoutExpiredException e) {
+        } catch (TimeoutExpiredException e) {
             Assert.fail("Problème d'accès à un composant de la vue Connexion : " + e.getMessage());
         }
     }
@@ -156,16 +149,17 @@ public class VueConnexionTest {
     /**
      * Test l'initialisation des différents champs de la vue.
      *
-     * <p>Méthodes concernées :
+     * <p>
+     * Méthodes concernées :
      * <ul>
-     * <li> private void construireControles()
-     * <li> private void initialiseIdQuantiteLibellePrix()
+     * <li>private void construireControles()
+     * <li>private void initialiseIdQuantiteLibellePrix()
      * </ul>
      * </p>
      */
     @Test
-    public void testInitialiseVue()
-    {
+    @Ignore
+    public void testInitialiseVue() {
         /*
          * Données de test.
          */
@@ -192,10 +186,8 @@ public class VueConnexionTest {
             final String texteIPActuel = this.texteIP.getText();
             final String textePortActuel = this.textePort.getText();
 
-
             // Récupération les libellés des boutons de la vue.
             final String boutonConnecterActuel = this.boutonConnecter.getText();
-
 
             // Assertions.
             Assert.assertEquals("Adresse IP par défaut invalide.", texteIPAttendu, texteIPActuel);
@@ -203,16 +195,15 @@ public class VueConnexionTest {
             Assert.assertEquals(
                     "Libellé du bouton de connexion invalide.",
                     boutonConnecterAttendu, boutonConnecterActuel);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Assert.fail("Manipulation de la vue Connexion invalide." + e.getMessage());
         }
 
-        /* Attention : la vérification des sollicitations faite au mock n'a pas de sens ici,
+        /*
+         * Attention : la vérification des sollicitations faite au mock n'a pas de sens
+         * ici,
          * puisque celui-ci ne sera sollicité qu'à la fermeture de la fenêtre.
          */
     }
-
-
 
 }

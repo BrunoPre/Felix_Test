@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0 (Python 3.9.7 on linux)" generated="20220406 12:20:01.758" rpa="false" schemaversion="3">
+<suite id="s1" name="Felix test CU" source="/home/pierre/Projets/cours/UE Qualité logicielle/rendu/Felix_Test/TV_Felix/Felix_test_CU.robot">
+<kw name="Execution Camix" library="Felix_test_CU" type="SETUP">
+<kw name="Start Process" library="Process">
+<arg>Camix</arg>
+<arg>java</arg>
+<arg>-jar target/Felix_Java-v0.4.2-1.0-SNAPSHOT.jar</arg>
+<arg>stdout=/dev/null</arg>
+<arg>stderr=/dev/null</arg>
+<doc>Starts a new process on background.</doc>
+<msg timestamp="20220406 12:20:01.852" level="INFO">Starting process:
+Camix java "-jar target/Felix_Java-v0.4.2-1.0-SNAPSHOT.jar"</msg>
+<msg timestamp="20220406 12:20:01.864" level="FAIL">FileNotFoundError: [Errno 2] No such file or directory: 'Camix'</msg>
+<status status="FAIL" starttime="20220406 12:20:01.851" endtime="20220406 12:20:01.865"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20220406 12:20:01.866" endtime="20220406 12:20:01.866"/>
+</kw>
+<status status="FAIL" starttime="20220406 12:20:01.849" endtime="20220406 12:20:01.867"/>
+</kw>
+<test id="s1-t1" name="Entrer Dans Le Chat" line="57">
+<status status="FAIL" starttime="20220406 12:20:01.868" endtime="20220406 12:20:01.871">Parent suite setup failed:
+FileNotFoundError: [Errno 2] No such file or directory: 'Camix'</status>
+</test>
+<kw name="Arret Camix" type="TEARDOWN">
+<msg timestamp="20220406 12:20:01.885" level="FAIL">No keyword with name 'Arret Camix' found.</msg>
+<status status="FAIL" starttime="20220406 12:20:01.885" endtime="20220406 12:20:01.886">No keyword with name 'Arret Camix' found.</status>
+</kw>
+<status status="FAIL" starttime="20220406 12:20:01.763" endtime="20220406 12:20:01.886">Suite setup failed:
+FileNotFoundError: [Errno 2] No such file or directory: 'Camix'
+
+Also suite teardown failed:
+No keyword with name 'Arret Camix' found.</status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Felix test CU">Felix test CU</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20220406 12:20:01.748" level="ERROR">Error in file '/home/pierre/Projets/cours/UE Qualité logicielle/rendu/Felix_Test/TV_Felix/Felix_test_CU.robot' on line 43: Non-existing setting 'Template] Entrer Dans Le Chat [Modification de l'IP] [Modification du port'.</msg>
+<msg timestamp="20220406 12:20:01.748" level="ERROR">Error in file '/home/pierre/Projets/cours/UE Qualité logicielle/rendu/Felix_Test/TV_Felix/Felix_test_CU.robot' on line 49: Non-existing setting 'Template] Entrer Dans Le Chat [Connexion Impossible'.</msg>
+<msg timestamp="20220406 12:20:01.748" level="ERROR">Error in file '/home/pierre/Projets/cours/UE Qualité logicielle/rendu/Felix_Test/TV_Felix/Felix_test_CU.robot' on line 61: Non-existing setting 'Template] Entrer Dans Le Chat [Modification de l'IP] [Modification du port'.</msg>
+<msg timestamp="20220406 12:20:01.749" level="ERROR">Error in file '/home/pierre/Projets/cours/UE Qualité logicielle/rendu/Felix_Test/TV_Felix/Felix_test_CU.robot' on line 64: Non-existing setting 'Template] Entrer Dans Le Chat [Connexion Impossible'.</msg>
+<msg timestamp="20220406 12:20:01.764" level="ERROR">Error in file '/home/pierre/Projets/cours/UE Qualité logicielle/rendu/Felix_Test/TV_Felix/Felix_test_CU.robot' on line 13: Setting variable '${IP_ADRESS} ${ADRESSE_CHAT}' failed: Invalid variable name '${IP_ADRESS} ${ADRESSE_CHAT}'.</msg>
+<msg timestamp="20220406 12:20:01.768" level="ERROR">Error in file '/home/pierre/Projets/cours/UE Qualité logicielle/rendu/Felix_Test/TV_Felix/Felix_test_CU.robot' on line 14: Setting variable '${PORT_CHAT} ${PORT_CHAT}' failed: Invalid variable name '${PORT_CHAT} ${PORT_CHAT}'.</msg>
+<msg timestamp="20220406 12:20:01.809" level="ERROR">Error in file '/home/pierre/Projets/cours/UE Qualité logicielle/rendu/Felix_Test/TV_Felix/resources/Felix_test_CU.resource' on line 2: Non-existing setting 'Documentation resources pour le test de Felix'.</msg>
+<msg timestamp="20220406 12:20:01.817" level="ERROR">Error in file '/home/pierre/Projets/cours/UE Qualité logicielle/rendu/Felix_Test/TV_Felix/resources/Felix_test_CU.resource' on line 3: Importing library 'RemoteSwingLibrary' failed: ModuleNotFoundError: No module named 'RemoteSwingLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /home/pierre/.vscode/extensions/robocorp.robotframework-lsp-0.43.2/src/robotframework_debug_adapter
+  /home/pierre/Projets/cours/UE Qualité logicielle/rendu/Felix_Test
+  /home/pierre/.vscode/extensions/robocorp.robotframework-lsp-0.43.2/src
+  /home/pierre/.vscode/extensions/robocorp.robotframework-lsp-0.43.2/src/robotframework_ls/vendored
+  /usr/lib/python39.zip
+  /usr/lib/python3.9
+  /usr/lib/python3.9/lib-dynload
+  /home/pierre/.local/lib/python3.9/site-packages
+  /usr/local/lib/python3.9/dist-packages
+  /usr/lib/python3/dist-packages</msg>
+</errors>
+</robot>
