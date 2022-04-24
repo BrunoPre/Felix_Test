@@ -21,6 +21,8 @@ Programme à usage pédagogique.
 Les arguments suivants doivent etre présent pour pouvoir lancer le fichier robot sans encombre.
 `-P ${workspaceFolder}/SUT/remoteswinglibrary-2.3.0.jar --RemoveKeywords "WUKS" --outputdir "robot_reports"`
 
+Le lancement des tests se fait par le biais du script `launch_tests.sh`. Ce script allimente un fichier de log qui répérrtorie tous les lancements de test.
+
 ## Répertoires sources
 
 src/
