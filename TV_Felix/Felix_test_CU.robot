@@ -21,6 +21,7 @@ Entrer Dans Le Chat
 
 Entrer Dans Le Chat [Modification de l'IP] [Modification du port]
     [Template]    Entrer Dans Le Chat [Modification de l'IP] [Modification du port]
+    127.0.0.1     12345
     127.0.0.1     12343
     145.0.1.2     12345
 

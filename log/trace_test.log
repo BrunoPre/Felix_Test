@@ -28,4 +28,45 @@ Felix test CU
 ==============================================================================
 Entrer Dans Le Chat                                                   | PASS |
 ------------------------------------------------------------------------------
-Entrer Dans Le Chat [Modification de l'IP] [Modification du port]     
+Entrer Dans Le Chat [Modification de l'IP] [Modification du port]     | FAIL |
+Several failures occurred:
+
+1) Window 'Chat' is not open
+
+2) Window 'Chat' is not open
+------------------------------------------------------------------------------
+Entrer Dans Le Chat [Connexion Impossible]                            | FAIL |
+Window 'Chat' is not open
+------------------------------------------------------------------------------
+Felix test CU                                                         | FAIL |
+3 tests, 1 passed, 2 failed
+==============================================================================
+Output:  /home/pierre/Projets/cours/UE Qualité logicielle/rendu/Felix_Test/robot_reports/output.xml
+Log:     /home/pierre/Projets/cours/UE Qualité logicielle/rendu/Felix_Test/robot_reports/log.html
+Report:  /home/pierre/Projets/cours/UE Qualité logicielle/rendu/Felix_Test/robot_reports/report.html
+
+
+[Test du dim. 24 avril 2022 15:30:19 CEST]
+==============================================================================
+Felix test CU                                                                 
+==============================================================================
+Entrer Dans Le Chat                                                   | PASS |
+------------------------------------------------------------------------------
+Entrer Dans Le Chat [Modification de l'IP] [Modification du port]     | FAIL |
+Several failures occurred:
+
+1) Window 'Chat' is not open
+
+2) Window 'Chat' is not open
+------------------------------------------------------------------------------
+Entrer Dans Le Chat [Connexion Impossible]                            | FAIL |
+Window 'Chat' is not open
+------------------------------------------------------------------------------
+Felix test CU                                                         | FAIL |
+3 tests, 1 passed, 2 failed
+==============================================================================
+Output:  /home/pierre/Projets/cours/UE Qualité logicielle/rendu/Felix_Test/robot_reports/output.xml
+Log:     /home/pierre/Projets/cours/UE Qualité logicielle/rendu/Felix_Test/robot_reports/log.html
+Report:  /home/pierre/Projets/cours/UE Qualité logicielle/rendu/Felix_Test/robot_reports/report.html
+
+
