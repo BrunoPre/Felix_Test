@@ -10,22 +10,24 @@ Suite Teardown    Arret Camix
 # Données de test
 #
 
+
 *** Test Cases ***
 
 #
 # Scénario nominal : entrée dans le chat
 #
 Entrer Dans Le Chat
-    Entrer Dans Le Chat
+   Entrer Dans Le Chat
 
 Entrer Dans Le Chat [Modification de l'IP] [Modification du port]
     [Template]    Entrer Dans Le Chat [Modification de l'IP] [Modification du port]
-    127.0.0.1     12345
+    127.0.0.1     12343
+    145.0.1.2     12345
 
 
 Entrer Dans Le Chat [Connexion Impossible]
-    [Template]      Entrer Dans Le Chat [Modification de l'IP] [Modification du port]
-    212.167.5.69    09999
+   [Template]      Entrer Dans Le Chat [Modification de l'IP] [Modification du port]
+   212.167.5.69    99999
 
 
 *** Keywords ***
@@ -34,7 +36,7 @@ Entrer Dans Le Chat [Connexion Impossible]
 # Scénario nominal : entrée dans le chat
 #
 Entrer Dans Le Chat
-    [Teardown]  Arret Felix
+    [Teardown]                                         Arret Felix
     # 1.
     L'utilisateur lance le Composant Felix
     # 2.
@@ -53,13 +55,22 @@ Entrer Dans Le Chat
     Felix affiche un message d’accueil dans le chat
 
 Entrer Dans Le Chat [Modification de l'IP] [Modification du port]
-    [Arguments]   ${ip}          ${port}
-    [Teardown]  Arret Felix
+    [Arguments]                               ${ip}          ${port}
+    [Teardown]                                Arret Felix
     L'utilisateur lance le Composant Felix
 
+    Felix affiche Vue Connexion
 
-Entrer Dans Le Chat [Connexion Impossible]
-    [Teardown]    Arret Felix
+    L'utilisateur change le port    ${port}
 
-    Entrer Dans Le Chat [Connexion Impossible]
-    ${ip}                                         ${port}
+    L'utilisateur change l'ip    ${ip}
+
+    L'utilisateur demande à se connecter
+
+    Felix Affiche un message de connexion    ${ip}    ${port}
+
+    Felix ferme la vue Connexion
+    
+    Felix affiche la vue Chat
+
+    Felix affiche un message d’accueil dans le chat
